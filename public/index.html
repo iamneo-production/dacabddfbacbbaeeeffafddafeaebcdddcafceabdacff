@@ -2,11 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fav Food</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Chessboard 9x9</title>
 </head>
 <body>
-    
+    <canvas id="chessboard"></canvas>
+    <script>
+        const canvas = document.getElementById('chessboard');
+const ctx = canvas.getContext('2d');
+
+const squareSize = 50; // Adjust this value to change square size
+
+canvas.width = squareSize * 8;
+canvas.height = squareSize * 8;
+
+// Draw the chessboard and labels
+for (let row = 0; row < 9; row++) {
+    for (let col = 0; col < 9; col++) {
+        if ((row + col) % 2 === 0) {
+            ctx.fillStyle = 'black'; // White
+        } else {
+            ctx.fillStyle = 'white'; // Black
+        }
+        ctx.fillRect(col * squareSize, row * squareSize, squareSize, squareSize);
+
+        // Draw "X" or "O" in the center of each square
+        // ctx.fillStyle = '#000'; // Black text color
+        // ctx.font = '24px Arial'; // Font size and family
+        // ctx.textAlign = 'center'; // Center the text horizontally
+        // ctx.textBaseline = 'middle'; // Center the text vertically
+        // const label = (row + col) % 2 === 0 ? 'X' : 'O'; // Replace with your logic for labeling
+        // ctx.fillText(label, col * squareSize + squareSize / 2, row * squareSize + squareSize / 2);
+    }
+}
+
+    </script>
 </body>
 </html>
